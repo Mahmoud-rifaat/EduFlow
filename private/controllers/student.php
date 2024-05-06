@@ -1,9 +1,9 @@
 <?php
 
     class Student extends Controller{
-        public function __construct()
+        public function index($id = '')
         {
-            echo 'Student controller';
+            echo 'Student controller '.$id;
         }
     }
 
