@@ -2,16 +2,19 @@
 
 class App
 {
-    protected $controller = 'home';
+    protected $controller = 'home'; //Default controller
     protected $method = 'index';
     protected $params = array();
 
     public function __construct()
     {
-        //Code
         $URL = $this->getURL();
-        echo '<pre>';
-        print_r($URL);
+        if(file_exists('../private/controllers/'.$URL[0].'.php')){
+            $this->controller = $URL[0];
+        }
+
+        require '../private/controllers/'.$this->controller.'.php';
+        $this->controller = new $this->controller();
     }
 
     private function getURL()
