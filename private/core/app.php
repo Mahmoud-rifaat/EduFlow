@@ -3,7 +3,7 @@
 class App
 {
     protected $controller = 'home'; //Default controller
-    protected $method = 'index';
+    protected $method = 'index'; //Default method
     protected $params = array();
 
     public function __construct()

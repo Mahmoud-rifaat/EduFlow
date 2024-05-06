@@ -3,7 +3,7 @@
     class Home extends Controller{
         public function index()
         {
-            echo $this->view('home0');
+            echo $this->view('home');
         }
     }
 
