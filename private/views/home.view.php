@@ -1,6 +1,6 @@
 <?php
-    require '../private/views/includes/header.view.php';
-    // $this->view('includes/header');
+    // require '../private/views/includes/header.view.php';
+    echo $this->view('./includes/header');
 ?>
 
 

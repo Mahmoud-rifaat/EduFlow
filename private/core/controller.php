@@ -8,6 +8,7 @@ class Controller{
         extract($data);
 
         if(file_exists('../private/views/'.$view.'.view.php')){
+            // This is what will display the view file
             require '../private/views/'.$view.'.view.php';
         }
         else{

@@ -1,6 +1,6 @@
 <?php
 
-define('ROOT' , 'http://localhost/school/public');
-define('ASSETS_ROOT', '/assets/');
+define('ROOT' , 'http://localhost/eduflow/public');
+define('ASSETS_ROOT', '/assets');
 
 ?>
