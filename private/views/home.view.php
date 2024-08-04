@@ -1,6 +1,7 @@
 <?php
-    // require '../private/views/includes/header.view.php';
-    echo $this->view('./includes/header');
+echo $this->view('./includes/header');
+echo $this->view('./includes/nav');
+echo $this->view('./includes/crumbs');
 ?>
 
 
@@ -13,5 +14,5 @@
 
 
 <?php
-    require '../private/views/includes/footer.view.php';
+require '../private/views/includes/footer.view.php';
 ?>
