@@ -1,14 +1,19 @@
 <?php
 
+
+require_once '../vendor/autoload.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '\..\..');
+$dotenv->load();
+
 class Database
 {
-
     private function connect()
     {
 
-        $string = "mysql:host=localhost;dbname:school_db";
+        $string = "mysql:host=" . $_ENV['DBHOST'] . ";dbname=" . $_ENV['DBNAME'];
 
-        if (!$con = new PDO($string, 'root', '')) {
+        if (!$con = new PDO($string, $_ENV['DBUSER'], $_ENV['DBPASS'])) {
             die("Couldn't connect to Database!");
         }
 

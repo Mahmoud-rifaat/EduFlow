@@ -12,6 +12,14 @@ echo $this->view('./includes/crumbs');
     </h1>
 </div>
 
+<?php
+
+echo '<pre>';
+print_r($data['rows']);
+
+?>
+
+
 
 <?php
 require '../private/views/includes/footer.view.php';
