@@ -1,8 +1,15 @@
 <style>
+    nav ul li a {
+        width: 110px;
+        text-align: center;
+        border-left: solid thin #eee !important;
+        /* border-right: solid thin #fff !important; */
+        border-radius: 5px;
+    }
+
     nav ul li a:hover {
         background-color: gray;
         color: white !important;
-        border-radius: 5px;
     }
 </style>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -27,11 +34,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?= ROOT ?>/tests">TESTS</a>
                 </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">Link</a>
+                </li> -->
+            </ul>
+            <ul class="navbar-nav ms-auto" style="--bs-scroll-height: 100px;">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         USER
                     </a>
-                    <ul class="dropdown-menu">
+                    <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="<?= ROOT ?>/profile">Profile</a></li>
                         <li><a class="dropdown-item" href="<?= ROOT ?>">Dashboard</a></li>
                         <li>
@@ -39,9 +51,6 @@
                         </li>
                         <li><a class="dropdown-item" href="<?= ROOT ?>/logout">Logout</a></li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Link</a>
                 </li>
             </ul>
             <!-- <form class="d-flex" role="search">

@@ -6,16 +6,9 @@ echo $this->view('./includes/crumbs');
 
 
 <div class="container-fluid">
-    <h1>
-        <i class="fa fa-plus btn btn-primary"></i>
-        This is Home page
-    </h1>
 </div>
 
 <?php
-
-echo '<pre>';
-print_r($data['rows']);
 
 ?>
 
