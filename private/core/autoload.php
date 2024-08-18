@@ -1,11 +1,11 @@
 <?php
 
 require 'config.php';
+require 'helpers.php';
 require 'Controller.php';
 require 'app.php';
 require 'database.php';
 require 'model.php';
-require 'helpers.php';
 
 
 spl_autoload_register(function ($class_name) {
