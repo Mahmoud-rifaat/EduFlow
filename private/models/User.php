@@ -36,6 +36,11 @@ class User extends Model
             $this->errors['email'] = "Invalid Email format!";
         }
 
+        // Check if email exists
+        if ($this->where('email', $DATA['email'])) {
+            $this->errors['email'] = "Email already exists!";
+        }
+
         $genders = ['male', 'female'];
         if (empty($DATA['gender']) || !in_array($DATA['gender'], $genders)) {
             $this->errors['gender'] = "Please select a gender!";

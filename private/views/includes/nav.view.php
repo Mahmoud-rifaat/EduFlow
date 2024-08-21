@@ -4,7 +4,7 @@
         text-align: center;
         border-left: solid thin #eee !important;
         /* border-right: solid thin #fff !important; */
-        border-radius: 5px;
+        border-radius: 2px;
     }
 
     nav ul li a:hover {
@@ -26,7 +26,13 @@
                     <a class="nav-link active" aria-current="page" href="<?= ROOT ?>">DASHBOARD</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= ROOT ?>/users">USERS</a>
+                    <a class="nav-link" href="<?= ROOT ?>/schools">SCHOOLS</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= ROOT ?>/users">STAFF</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= ROOT ?>/students">STUDENTS</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?= ROOT ?>/classes">CLASSES</a>
@@ -34,14 +40,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="<?= ROOT ?>/tests">TESTS</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Link</a>
-                </li> -->
             </ul>
             <ul class="navbar-nav ms-auto" style="--bs-scroll-height: 100px;">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        USER
+                        <?= Auth::getFirstname() ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
                         <li><a class="dropdown-item" href="<?= ROOT ?>/profile">Profile</a></li>

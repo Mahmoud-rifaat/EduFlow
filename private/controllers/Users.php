@@ -1,6 +1,6 @@
 <?php
 
-class Home extends Controller
+class Users extends Controller
 {
     public function index()
     {
@@ -11,6 +11,6 @@ class Home extends Controller
 
         $user = new User();
         $data = $user->findAll();
-        $this->view('home', ['rows' => $data]);
+        $this->view('users', ['rows' => $data]);
     }
 }
