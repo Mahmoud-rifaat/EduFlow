@@ -4,21 +4,21 @@ class App
 {
     protected $controller = 'home'; //Default controller
     protected $method = 'index'; //Default method
-    protected $params = array();
+    protected $params = array(); //parameters array
 
     public function __construct()
     {
         $URL = $this->getURL();
-        if(file_exists('../private/controllers/'.$URL[0].'.php')){
+        if (file_exists('../private/controllers/' . $URL[0] . '.php')) {
             $this->controller = ucfirst($URL[0]);
             unset($URL[0]);
         }
 
-        require '../private/controllers/'.$this->controller.'.php';
+        require '../private/controllers/' . $this->controller . '.php';
         $this->controller = new $this->controller();
 
-        if(isset($URL[1])){
-            if(method_exists($this->controller, $URL[1])){
+        if (isset($URL[1])) {
+            if (method_exists($this->controller, $URL[1])) {
                 $this->method = ucfirst($URL[1]);
                 unset($URL[1]);
             }

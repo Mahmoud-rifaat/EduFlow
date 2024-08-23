@@ -9,5 +9,5 @@ echo $this->view('./includes/crumbs');
 </div>
 
 <?php
-require '../private/views/includes/footer.view.php';
+echo $this->view('./includes/footer');
 ?>
