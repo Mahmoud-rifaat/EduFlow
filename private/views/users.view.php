@@ -13,14 +13,24 @@ echo $this->view('./includes/nav');
     $users = $user->findAll();
     ?>
 
-    <div class="card" style="max-width: 14rem; min-width:14rem">
-        <img src="<?= asset('/images/user_female.jpg') ?>" alt="..." class="card-img-top">
-        <div class="card-body">
-            <h5 class="card-title">Name</h5>
-            <p class="card-text">Rank: </p>
-            <a href="#" class="btn btn-primary">Profile</a>
-        </div>
+    <div class="card-group justify-content-center">
+        <?php if ($users): ?>
+            <?php foreach ($users as $user): ?>
+                <div class="card m-3 shadow-sm" style="max-width: 14rem; min-width:14rem">
+                    <div class="card-header">User profile</div>
+                    <img src="<?= asset('/images/user_female.jpg') ?>" alt="..." class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $user->firstname ?> <?= $user->lastname ?></h5>
+                        <p class="card-text"><?= $user->rank ?></p>
+                        <a href="#" class="btn btn-primary">Profile</a>
+                    </div>
+                </div>
+            <?php endforeach ?>
+        <?php else: ?>
+            <h4>No users found!</h4>
+        <?php endif ?>
     </div>
+
 
     <!-- <table style="width: 100%; text-align:center;">
         <tr>
