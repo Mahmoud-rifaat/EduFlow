@@ -11,7 +11,15 @@ class Schools extends Controller
 
         $school = new School();
         $data = $school->findAll();
-        $this->view('schools', ['rows' => $data]);
+
+        $crumbs = [
+            ['Dashboard', ''],
+            ['Schools', 'schools']
+        ];
+        $this->view('schools', [
+            'rows' => $data,
+            'crumbs' => $crumbs
+        ]);
     }
 
     public function add()
@@ -37,8 +45,16 @@ class Schools extends Controller
                 $errors = $school->errors;
             }
         }
+        $crumbs = [
+            ['Dashboard', ''],
+            ['Schools', 'schools'],
+            ['Add', 'schools/add']
+        ];
 
-        $this->view('schools.add', ['errors' => $errors]);
+        $this->view('schools.add', [
+            'errors' => $errors,
+            'crumbs' => $crumbs
+        ]);
     }
 
     public function edit($id = null)
@@ -62,37 +78,42 @@ class Schools extends Controller
         }
 
         $row = $school->where('id', $id);
-        
+
+        $crumbs = [
+            ['Dashboard', ''],
+            ['Schools', 'schools'],
+            ['Edit', 'schools/edit']
+        ];
         $this->view('schools.edit', [
             'row' => $row,
-            'errors' => $errors
+            'errors' => $errors,
+            'crumbs' => $crumbs
         ]);
     }
 
-    public function delete()
+    public function delete($id = null)
     {
         if (!Auth::logged_in()) {
             $this->redirect('login');
         }
 
-        $errors = array();
+        $school = new School();
 
         if (count($_POST) > 0) {
-
-            $school = new School();
-
-            if ($school->validate($_POST)) {
-                $_POST['date'] = date('Y-m-d H:i:s');
-
-                $school->insert($_POST);
-
-                $this->redirect('schools');
-            } else {
-                // errors
-                $errors = $school->errors;
-            }
+            $school->delete($id);
+            $this->redirect('schools');
         }
 
-        $this->view('schools.add', ['errors' => $errors]);
+        $row = $school->where('id', $id);
+
+        $crumbs = [
+            ['Dashboard', ''],
+            ['Schools', 'schools'],
+            ['Delete', 'schools/delete']
+        ];
+        $this->view('schools.delete', [
+            'row' => $row,
+            'crumbs' => $crumbs
+        ]);
     }
 }

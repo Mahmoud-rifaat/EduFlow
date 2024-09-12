@@ -5,7 +5,7 @@ echo $this->view('./includes/nav');
 
 
 <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
-    <?php echo $this->view('./includes/crumbs'); ?>
+    <?php $this->view('includes/crumbs', ['crumbs' => $crumbs]) ?>
 
 
     <?php
@@ -35,10 +35,14 @@ echo $this->view('./includes/nav');
                         <td><?= format_date($school->date) ?></td>
                         <td>
                             <a href="<?= ROOT ?>/schools/edit/<?= $school->id ?>" style="text-decoration: none;">
-                                <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i>Edit</button>
+                                <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
                             </a>
-                            <a href="<?= ROOT ?>/schools/delete/<?= $school->id ?>">
-                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i>Delete</button>
+                            <a href="<?= ROOT ?>/schools/delete/<?= $school->id ?>" style="text-decoration: none;">
+                                <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
+                            </a>
+
+                            <a href="<?= ROOT ?>/switch_school/<?= $school->id ?>">
+                                <button class="btn btn-sm btn-success">Switch to<i class="fa fa-chevron-right"></i></button>
                             </a>
                         </td>
                     </tr>

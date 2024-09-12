@@ -42,4 +42,27 @@ class Auth
 
         return false;
     }
+
+    public static function switch_school($id)
+    {
+        if (isset($_SESSION['USER']) && $_SESSION['USER']->rank == 'super') {
+
+            $user = new User();
+            $school = new School();
+            $row = $school->where('id', $id);
+
+            if ($row) {
+                $row = $row[0];
+                $arr['school_id'] = $row->school_id;
+
+                if ($user->update($_SESSION['USER']->id, $arr)) {
+                    $_SESSION['USER']->school_id = $row->school_id;
+                    $_SESSION['USER']->school_name = $row->school_name;
+                }
+            }
+            return true;
+        }
+
+        return false;
+    }
 }

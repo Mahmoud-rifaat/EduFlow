@@ -11,9 +11,9 @@
 </head>
 
 <body>
-    <style>
+    <!-- <style>
         .fa {
             margin-right: 4px;
         }
-    </style>
+    </style> -->
     <div class="wrapper" style="min-width: 350px;">
