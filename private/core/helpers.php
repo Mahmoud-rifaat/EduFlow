@@ -50,3 +50,11 @@ function format_date($date)
 {
     return date("jS M, Y", strtotime($date));
 }
+
+
+function show($data) //Print out data in readable way
+{
+    echo '<pre>';
+    print_r($data);
+    echo '</pre>';
+}

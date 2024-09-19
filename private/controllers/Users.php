@@ -8,9 +8,16 @@ class Users extends Controller
             $this->redirect('login');
         }
 
+        $school_id = Auth::getSchool_id();
 
         $user = new User();
-        $data = $user->findAll();
-        $this->view('users', ['rows' => $data]);
+        $data = $user->query(
+            "SELECT * FROM users WHERE school_id = :school_id",
+            [
+                'school_id' => $school_id
+            ]
+        );
+
+        $this->view('users', ['users' => $data]);
     }
 }

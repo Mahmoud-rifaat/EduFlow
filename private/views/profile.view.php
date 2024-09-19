@@ -1,11 +1,11 @@
 <?php
-echo $this->view('./includes/header');
-echo $this->view('./includes/nav');
+$this->view('includes/header');
+$this->view('includes/nav');
 ?>
 
 
 <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
-    <?php $this->view('./includes/crumbs'); ?>
+    <?php $this->view('./includes/crumbs', ['crumbs' => $crumbs]); ?>
 
     <div class="row">
         <div class="col-sm-4 col-md-3">
@@ -73,5 +73,5 @@ echo $this->view('./includes/nav');
 
 
 <?php
-echo $this->view('./includes/footer');
+$this->view('includes/footer');
 ?>

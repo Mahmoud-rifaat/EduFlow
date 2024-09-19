@@ -37,7 +37,7 @@ class User extends Model
         }
 
         // Check if email exists
-        if ($this->where('email', $DATA['email'])) {
+        if (is_array($this->where('email', $DATA['email']))) {
             $this->errors['email'] = "Email already exists!";
         }
 
