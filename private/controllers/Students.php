@@ -1,6 +1,6 @@
 <?php
 
-class Users extends Controller
+class Students extends Controller
 {
     public function index()
     {
@@ -12,7 +12,7 @@ class Users extends Controller
 
         $user = new User();
         $users = $user->query(
-            "SELECT * FROM users WHERE school_id = :school_id && rank not in ('student') ORDER BY id DESC",
+            "SELECT * FROM users WHERE school_id = :school_id && rank in ('student') ORDER BY id DESC",
             [
                 'school_id' => $school_id
             ]
@@ -20,13 +20,12 @@ class Users extends Controller
 
         $crumbs = [
             ['Dashboard', './'],
-            ['Users', './users']
+            ['Students', './students']
         ];
 
-        $this->view('users', [
+        $this->view('students', [
             'users' => $users,
-            'crumbs' => $crumbs,
-            'mode' => 'users'
+            'crumbs' => $crumbs
         ]);
     }
 }

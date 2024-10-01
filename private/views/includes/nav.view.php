@@ -48,7 +48,7 @@
                         <?= Auth::getFirstname() ?>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a class="dropdown-item" href="<?= ROOT ?>/profile">Profile</a></li>
+                        <li><a class="dropdown-item" href="<?= ROOT ?>/profile/<?= Auth::getUser_id(); ?>">Profile</a></li>
                         <li><a class="dropdown-item" href="<?= ROOT ?>">Dashboard</a></li>
                         <li>
                             <hr class="dropdown-divider">

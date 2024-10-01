@@ -16,6 +16,7 @@ echo $this->view('./includes/nav');
     <div class="card-group justify-content-center text-center">
         <table class="table table-striped table-hover">
             <tr>
+                <th></th>
                 <th>School</th>
                 <th>Created by</th>
                 <th>Date</th>
@@ -30,6 +31,7 @@ echo $this->view('./includes/nav');
             <?php if ($schools): ?>
                 <?php foreach ($schools as $school): ?>
                     <tr>
+                        <td><button class="btn btn-sm btn-primary"><i class="fa fa-chevron-right"></i></button></td>
                         <td><?= $school->school_name ?></td>
                         <td><?= $school->user->firstname ?> <?= $school->user->lastname ?></td>
                         <td><?= format_date($school->date) ?></td>

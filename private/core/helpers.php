@@ -52,9 +52,24 @@ function format_date($date)
 }
 
 
-function show($data) //Print out data in readable way
+function dd($data) //Print out data in readable way
 {
     echo '<pre>';
-    print_r($data);
+    var_dump($data);
     echo '</pre>';
+
+    die();
+}
+
+function get_user_image($user)
+{
+    $image = asset($user->image);
+    if (!file_exists($image)) {
+        $image = asset('/images/user_female.jpg');
+        if ($user->gender == 'male') {
+            $image = asset('/images/user_male.jpg');
+        }
+    }
+
+    return $image;
 }

@@ -8,12 +8,14 @@ class Profile extends Controller
         $user = new User();
         $row = $user->first('user_id', $id);
 
-
         $crumbs = [
             ['Dashboard', ''],
-            ['Profile', 'profile'],
-            ['Delete', 'schools/delete']
+            ['Profile', 'profile']
         ];
+
+        if ($row) {
+            $crumbs[] = [$row->firstname, $row->user_id];
+        }
 
         $this->view(
             'profile',
