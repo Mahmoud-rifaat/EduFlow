@@ -14,6 +14,7 @@ echo $this->view('./includes/nav');
     ?>
 
     <div class="card-group justify-content-center text-center">
+        <h5>Schools</h5>
         <table class="table table-striped table-hover">
             <tr>
                 <th></th>
@@ -28,7 +29,7 @@ echo $this->view('./includes/nav');
                 </th>
             </tr>
 
-            <?php if ($schools): ?>
+            <?php if ($rows): ?>
                 <?php foreach ($schools as $school): ?>
                     <tr>
                         <td><button class="btn btn-sm btn-primary"><i class="fa fa-chevron-right"></i></button></td>
@@ -39,6 +40,7 @@ echo $this->view('./includes/nav');
                             <a href="<?= ROOT ?>/schools/edit/<?= $school->id ?>" style="text-decoration: none;">
                                 <button class="btn btn-sm btn-info"><i class="fa fa-edit"></i></button>
                             </a>
+
                             <a href="<?= ROOT ?>/schools/delete/<?= $school->id ?>" style="text-decoration: none;">
                                 <button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i></button>
                             </a>
